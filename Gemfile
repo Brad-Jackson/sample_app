@@ -24,7 +24,7 @@ end
 #  gem 'uglifier'
 #end
 
-#gem 'jquery-rails'
+gem 'jquery-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'
