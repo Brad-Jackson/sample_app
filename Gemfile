@@ -7,10 +7,15 @@ gem 'rails', '3.1.0'
 
 gem 'sqlite3'
 gem 'gravatar_image_tag'
+gem 'will_paginate'
 
 group :development do
   gem 'rspec-rails'
   gem 'annotate'
+  gem 'faker'
+  # allow for ide debugging
+  gem 'ruby-debug-base19x'
+  gem 'ruby-debug-ide'
 end
 
 group :production do
