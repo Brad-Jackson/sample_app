@@ -44,6 +44,10 @@ module SessionsHelper
     clear_return_to
   end
 
+  def authenticate
+    deny_access unless signed_in?
+  end
+
   private
 
   def store_location

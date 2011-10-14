@@ -9,8 +9,13 @@
 #  updated_at :datetime
 
 class User < ActiveRecord::Base
+
   attr_accessor     :password
   attr_accessible   :name, :email, :password, :password_confirmation
+
+  before_save :encrypt_password
+
+  has_many :microposts, :dependent => :destroy
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -39,7 +44,9 @@ class User < ActiveRecord::Base
     self.encrypted_password == encrypt(submitted_password)
   end
 
-  before_save :encrypt_password
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
   private
 
   def encrypt_password
